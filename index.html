@@ -260,4 +260,112 @@
                     if (isArabicOrUrdu) {
                         reply = "❌ **آفیشل منسوخی (Cancellation) اور کٹوتی قوانین (Article 15):**<br><br>" +
                                 "• **25% کٹوتی:** اگر آپ بکنگ کے وقت سے **6 گھنٹے یا اس سے کم** وقت پہلے کینسل کریں گے۔<br>" +
-                                "• **ایک دن کا کرایہ کٹوتی (No-Show):** اگر آپ مقررہ تاریخ گزرنے کے بعد منسوخ کریں گے یا گاڑی پک اپ ک
+                                "• **ایک دن کا کرایہ کٹوتی (No-Show):** اگر آپ مقررہ تاریخ گزرنے کے بعد منسوخ کریں گے یا گاڑی پک اپ کرنے نہیں آئیں گے۔<br>" +
+                                "• **دستاویزات کی کمی:** اگر کاؤنٹر پر درست شناختی آئی ڈی (ID) یا ڈرائیونگ لائسنس پیش نہیں کیا گیا، تو ایک دن کا کرایہ کاٹ لیا جائے گا۔";
+                    } else {
+                        reply = "❌ **Official Booking Cancellation & Deductions (Article 15):**<br><br>" +
+                                "• **25% Deduction:** Charged if the reservation is canceled **6 hours or less** before the scheduled pickup time.<br>" +
+                                "• **First Day Deduction (No-Show):** The first day's fee is non-refundable if the reservation is not picked up or canceled after the scheduled date.<br>" +
+                                "• **Missing Credentials:** Failure to present a valid ID or valid driver's license at pickup results in a one-day rent deduction.";
+                    }
+                }
+                // 5. ABSHER / SYSTEM AUTHORIZATION BLOCKERS (ARTICLE 15 C, H)
+                else if (lowerText.includes('absher') || lowerText.includes('expired') || lowerText.includes('ابشر') || lowerText.includes('لائسنس') || lowerText.includes('أبشر')) {
+                    if (isArabicOrUrdu) {
+                        reply = "🆔 **ابشر سسٹم اور ڈیجیٹل اتھورائزیشن قوانین:**<br><br>" +
+                                "• اگر کسٹمر کا لائسنس ایکسپائرڈ ہو، حکومتی سروسز معطل ہوں، یا ابشر (Absher) سسٹم میں ڈیٹا اپڈیٹ نہ ہونے کی وجہ سے گاڑی چلانے کا ڈیجیٹل پرمٹ (Authorization) جاری نہ ہو سکے، تو **ایک دن کا کرایہ کاٹ کر** باقی رقم ریفنڈ کی جائے گی۔<br>" +
+                                "• ری-انٹری ویزا ہولڈرز کے لیے اضافی فیس کے ساتھ انٹرنیشنل اتھورائزیشن ضروری ہے۔";
+                    } else {
+                        reply = "🆔 **Absher & Digital Authorization Policy (Article 15-C):**<br><br>" +
+                                "• If the electronic contract cannot authorize due to an **expired license, suspension of services, or failure to register/update data in the Absher system**, a penalty of **one day's rent will be deducted**.<br>" +
+                                "• Re-entry visa holders require international authorization processing alongside extra company fees.";
+                    }
+                }
+                // 6. VISIT VISA & GCC DEPOSIT SAFETY (ARTICLE 15 D)
+                else if (lowerText.includes('visit') || lowerText.includes('gcc') || lowerText.includes('وزٹ') || lowerText.includes('ڈپازٹ')) {
+                    if (isArabicOrUrdu) {
+                        reply = "🌍 **وزٹ ویزا اور خلیجی (GCC) شہریوں کے لیے قوانین:**<br><br>" +
+                                "• وزٹ ویزا اور جی سی سی پاسپورٹ ہولڈرز کے لیے کریڈٹ کارڈ سے سیکیورٹی ڈپازٹ بلاک کرنا لازمی ہے۔<br>" +
+                                "• گاڑی کی واپسی کے **21 ورکنگ ڈیز** بعد ڈپازٹ ریلیز ہوتا ہے، تاکہ یہ تصدیق ہو سکے کہ اس دوران کوئی ٹریفک خلاف ورزی (Saher violation) تو نہیں ہوئی۔";
+                    } else {
+                        reply = "🌍 **Visit Visa & GCC Passports Protocol (Article 15-D):**<br><br>" +
+                                "• A mandatory credit card security deposit is held by the rental agent for all visit visa and GCC passport holders.<br>" +
+                                "• The refund is cleared exactly after **21 working days** from the vehicle return date, ensuring zero pending traffic violations are logged.";
+                    }
+                }
+                // 7. APP CRASH / ACCOUNT DELETION (Screenshot_20260629_060059_Chrome.png)
+                else if (lowerText.includes('delete') || lowerText.includes('crash') || lowerText.includes('ڈیلیٹ') || lowerText.includes('ایپ')) {
+                    if (isArabicOrUrdu) {
+                        reply = "⚙️ **ٹیکنیکل الرٹ اور ڈیٹا ڈیلیشن:** (حوالہ: Screenshot_20260629_060059_Chrome.png)<br><br>" +
+                                "• **ڈیٹا ڈیلیٹ کرنا:** آپ کو پورا حق حاصل ہے کہ آپ اپنا ڈیٹا ایپ سیٹنگز میں جا کر یا ہماری آفیشل ای میل **info@key.sa** پر رابطہ کر کے ڈیٹا بیس سے ریمو کروائیں۔<br>" +
+                                "• **ایپ ایشوز:** عارضی اینڈرائیڈ اپڈیٹ بگ کی وجہ سے اگر ایپ کریش ہو، تو آپ بغیر ایپ انسٹال کیے ہماری آفیشل ویب سائٹ یا اسی چیٹ ونڈو کے ذریعے براہ راست بکنگ کر سکتے ہیں۔";
+                    } else {
+                        reply = "⚙️ **App Support & Data Privacy:** (Ref: Screenshot_20260629_060059_Chrome.png)<br><br>" +
+                                "• **Account Deletion:** You have the absolute right to delete your personal data. Request removal inside the app settings or via direct email to **info@key.sa**.<br>" +
+                                "• **Technical Support:** If you face an application error or emulator mismatch, you can seamlessly bypass the app and execute your entire search and booking on our desktop web matrix directly.";
+                    }
+                }
+
+                appendMessage(reply, 'bot');
+            }, 600);
+        }
+
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            const isRtl = text.match(/[\u0600-\u06FF]/);
+            const currentSelectedTheme = document.getElementById('theme-selector').value || 'classic';
+            const t = themes[currentSelectedTheme];
+
+            const dirClass = isRtl ? 'dir="rtl" class="text-right urdu-text text-[13.5px]"' : 'class="leading-relaxed text-[12.5px] sm:text-xs"';
+
+            if(sender === 'user') {
+                msgDiv.className = "flex items-start justify-end space-x-2 max-w-[85%] ml-auto";
+                msgDiv.innerHTML = `<div ${dirClass} style="background-color: #A855F7; color: white;" class="p-3 rounded-2xl rounded-tr-none shadow-sm font-medium">${text}</div>`;
+            } else {
+                msgDiv.className = "flex items-start space-x-2.5 max-w-[88%]";
+                msgDiv.innerHTML = `
+                    <div class="w-7 h-7 bg-[#0A2240] text-[#FFCC00] rounded-lg flex items-center justify-center text-[11px] flex-shrink-0 shadow-sm"><i class="fas fa-robot"></i></div>
+                    <div ${dirClass} class="${t.botMsgBg} ${t.botTxt} p-3.5 rounded-2xl rounded-tl-none shadow-sm font-semibold border">${text}</div>
+                `;
+            }
+            chatMessages.appendChild(msgDiv);
+            document.getElementById('chat-body').scrollTop = document.getElementById('chat-body').scrollHeight;
+        }
+
+        function appendQuickPills(pillsArray) {
+            const pillsDiv = document.createElement('div');
+            pillsDiv.className = "pl-9.5 space-y-2";
+            pillsDiv.id = "quick-actions-panel";
+            
+            let buttonsHtml = `<p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">${langData[currentLang].label}</p><div class="flex flex-wrap gap-1.5">`;
+            pillsArray.forEach(pill => {
+                buttonsHtml += `<button onclick="sendQuickReply('${pill.act}')" class="text-[11px] bg-white text-slate-900 border border-slate-200 hover:border-[#0A2240] px-3 py-2 rounded-full shadow-sm font-bold cursor-pointer transition-all">${pill.text}</button>`;
+            });
+            buttonsHtml += `</div>`;
+            pillsDiv.innerHTML = buttonsHtml;
+            chatMessages.appendChild(pillsDiv);
+            document.getElementById('chat-body').scrollTop = document.getElementById('chat-body').scrollHeight;
+        }
+
+        function sendQuickReply(text) { userInput.value = text; sendMessage(); }
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing-indicator';
+            typingDiv.className = "flex items-start space-x-2.5 max-w-[85%]";
+            typingDiv.innerHTML = `<div class="w-7 h-7 bg-[#0A2240] text-[#FFCC00] rounded-lg flex items-center justify-center text-[11px] flex-shrink-0"><i class="fas fa-robot"></i></div><div class="bg-slate-200 px-3.5 py-2.5 rounded-2xl text-xs text-slate-500 flex items-center space-x-1 font-bold"><span>Scanning Core Matrix</span><span class="animate-pulse">...</span></div>`;
+            chatMessages.appendChild(typingDiv);
+            document.getElementById('chat-body').scrollTop = document.getElementById('chat-body').scrollHeight;
+        }
+        function removeTypingIndicator() { const ind = document.getElementById('typing-indicator'); if(ind) ind.remove(); }
+
+        // PWA Registration Trigger
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').then(reg => console.log('ServiceWorker registered')).catch(err => console.log('SW registration failed', err));
+            });
+        }
+
+        applyTheme('classic');
+    </script>
+</body>
+</html>
